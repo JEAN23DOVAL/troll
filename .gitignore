@@ -1,0 +1,52 @@
+# Node modules - ne pas versionner les dépendances installées
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dossiers système macOS et Windows
+.DS_Store
+Thumbs.db
+
+# Environnement (fichiers avec variables sensibles)
+.env
+.env.local
+.env.*.local
+
+# Dossier de build ou compilation (si tu en utilises un)
+dist/
+build/
+
+# Fichiers temporaires ou de cache
+.cache/
+.pnp.*
+.vscode/
+
+# Output de debug
+*.pid
+*.seed
+*.pid.lock
+
+# IDEs et éditeurs
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Coverage reports (tests)
+coverage/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# npm package lock (à versionner ou pas selon projet, ici ignoré)
+package-lock.json
+
+# Typescript
+*.tsbuildinfo
