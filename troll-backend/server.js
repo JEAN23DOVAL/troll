@@ -10,9 +10,17 @@ const FICHIER_DONNEES = "donnees.json";
 
 // Enregistrement des données reçues
 app.post("/collect", (req, res) => {
-  const data = req.body;
-  console.log("✅ Données reçues :", data);
-  fs.writeFileSync(FICHIER_DONNEES, JSON.stringify(data, null, 2));
+  let existingData = [];
+  if (fs.existsSync(FICHIER_DONNEES)) {
+    try {
+      existingData = JSON.parse(fs.readFileSync(FICHIER_DONNEES));
+      if (!Array.isArray(existingData)) existingData = [];
+    } catch (err) {
+      existingData = [];
+    }
+  }
+  existingData.push(req.body);
+  fs.writeFileSync(FICHIER_DONNEES, JSON.stringify(existingData, null, 2));
   res.json({ message: "Données enregistrées avec succès" });
 });
 
